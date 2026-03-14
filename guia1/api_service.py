@@ -12,9 +12,10 @@ def consultar_ruc(numero: str) -> RUC:
     if not numero.strip().isdigit() or len(numero.strip()) != 11:
         raise ValueError("El RUC debe tener exactamente 11 dígitos.")
     try:
-        r = requests.get(f"{BASE_URL}/ruc?numero={numero.strip()}",
+        r = requests.get(f"{BASE_URL}/sunat/ruc?numero={numero.strip()}",
         headers=HEADERS, timeout=10)
         r.raise_for_status()
+        print(r.json())
         return RUC.desde_dict(r.json())
     except requests.exceptions.Timeout:
         raise ConnectionError("El servicio no respondió. Intente nuevamente.")
@@ -28,7 +29,7 @@ def consultar_dni(numero: str) -> DNI:
     if not numero.strip().isdigit() or len(numero.strip()) != 8:
         raise ValueError("El DNI debe tener exactamente 8 dígitos.")
     try:
-        r = requests.get(f"{BASE_URL}/dni?numero={numero.strip()}",
+        r = requests.get(f"{BASE_URL}/reniec/dni?numero={numero.strip()}",
         headers=HEADERS, timeout=10)
         r.raise_for_status()
         print(r.json())

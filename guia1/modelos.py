@@ -1,23 +1,23 @@
 from dataclasses import dataclass
 @dataclass
 class RUC:
-    nombre: str = ""
+    razon_social: str = ""
     estado: str = ""
     condicion: str = ""
     direccion: str = ""
     distrito: str = ""
     provincia: str = ""
-    departamento: str = ""
+    dpto: str = ""
     @classmethod
     def desde_dict(cls, data: dict) -> "RUC":
         return cls(
-            nombre=data.get("nombre", ""),
+            razon_social=data.get("razon_social", ""),
             estado=data.get("estado", ""),
             condicion=data.get("condicion", ""),
             direccion=data.get("direccion", ""),
             distrito=data.get("distrito", ""),
             provincia=data.get("provincia", ""),
-            departamento=data.get("departamento", ""),
+            dpto=data.get("dpto", ""),
         )
 @dataclass
 class DNI:

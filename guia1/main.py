@@ -8,12 +8,12 @@ def buscar_ruc():
     try:
         res = consultar_ruc(entry_ruc.get())
         text_rpta_ruc.insert(tk.END,
-        f"Nombre: {res.nombre}\n"
+        f"Nombre: {res.razon_social}\n"
         f"Estado: {res.estado}\n"
         f"Condición: {res.condicion}\n"
         f"Dirección: {res.direccion}\n"
         f"Distrito: {res.distrito}\n"
-        f"Departamento: {res.departamento}")
+        f"Departamento: {res.dpto}")
     except (ValueError, LookupError) as e:
         messagebox.showwarning("Dato inválido", str(e))
     except (ConnectionError, PermissionError, RuntimeError) as e:
