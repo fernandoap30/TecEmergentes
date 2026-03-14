@@ -21,17 +21,17 @@ class RUC:
         )
 @dataclass
 class DNI:
-    nombre: str = ""
-    nombres: str = ""
-    apellidoPaterno: str = ""
-    apellidoMaterno: str = ""
-    numeroDocumento: str = ""
+    first_name: str = ""
+    full_name: str = ""
+    first_last_name: str = ""
+    second_last_name: str = ""
+    document_number: str = ""
     @classmethod
     def desde_dict(cls, data: dict) -> "DNI":
         return cls(
-            nombre=data.get("nombre", ""),
-            nombres=data.get("nombres", ""),
-            apellidoPaterno=data.get("apellidoPaterno", ""),
-            apellidoMaterno=data.get("apellidoMaterno", ""),
-            numeroDocumento=data.get("numeroDocumento", ""),
+            first_name=data.get("first_name", ""),
+            full_name=data.get("full_name", ""),
+            first_last_name=data.get("first_last_name", ""),
+            second_last_name=data.get("second_last_name", ""),
+            document_number=data.get("document_number", ""),
         )

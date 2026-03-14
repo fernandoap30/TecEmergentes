@@ -27,11 +27,11 @@ def buscar_dni():
     try:
         res = consultar_dni(entry_dni.get())
         text_rpta_dni.insert(tk.END,
-        f"Nombre: {res.nombre}\n"
-        f"Nombres: {res.nombres}\n"
-        f"Apellido Paterno: {res.apellidoPaterno}\n"
-        f"Apellido Materno: {res.apellidoMaterno}\n"
-        f"N° Documento: {res.numeroDocumento}")
+        f"Nombre: {res.first_name}\n"
+        f"Nombres: {res.full_name}\n"
+        f"Apellido Paterno: {res.first_last_name}\n"
+        f"Apellido Materno: {res.second_last_name}\n"
+        f"N° Documento: {res.document_number}")
     except (ValueError, LookupError) as e:
         messagebox.showwarning("Dato inválido", str(e))
     except (ConnectionError, PermissionError, RuntimeError) as e:

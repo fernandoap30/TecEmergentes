@@ -31,6 +31,7 @@ def consultar_dni(numero: str) -> DNI:
         r = requests.get(f"{BASE_URL}/dni?numero={numero.strip()}",
         headers=HEADERS, timeout=10)
         r.raise_for_status()
+        print(r.json())
         return DNI.desde_dict(r.json())
     except requests.exceptions.Timeout:
         raise ConnectionError("El servicio no respondió. Intente nuevamente.")
